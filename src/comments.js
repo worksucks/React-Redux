@@ -16,19 +16,19 @@ function comments(state =[], action) {
 
     case THUMB_UP_COMMENT:
       return state.map(comment => {
-        if (comment.id === actions.id) {
+        if (comment.id === action.id) {
           return {...comment, votes: comment.votes + 1}
         }
         return comment;
       });
 
-      case THUMB_DOWN_COMMENT:
-        return state.map(comment => {
-          if (comment.id === actions.id) {
-            return {...comment, votes: comment.votes + 1}
-          }
-          return comment;
-        });
+    case THUMB_DOWN_COMMENT:
+      return state.map(comment => {
+        if (comment.id === action.id) {
+          return {...comment, votes: comment.votes + 1}
+        }
+        return comment;
+      });
 
     default:
       return state;
